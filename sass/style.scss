@@ -1,0 +1,62 @@
+@import "libs/variables.scss";
+@import "libs/functions.scss";
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+}
+a:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+header {
+    background:-webkit-linear-gradient(.10turn, $orange 5%, $violet);
+    height: 10vh;
+    & nav {
+        color: #fff;
+        & a {color: #fff;}  
+    }
+}
+aside {
+    background-color: lighten($violet, 30);
+}
+button {
+    background: $violet !important;
+    border-color: darken($violet, 10);
+    border-radius: 2em !important;
+    height: 3em;
+    font-weight: 600;
+    color: #fff;
+}
+footer {
+    background: $orange;
+    & .copyright {
+        font-size: em(12, $tbase);
+        font-weight: 700;
+    }
+}
+.cursor {cursor: pointer;}
+//Page Panier
+.total {color: $violet;}
+ul {
+    padding: 0 !important;
+    list-style:none;
+    & li {
+        & h4 {
+            margin: -.2em 0 0 0 !important;
+        }
+        & p {margin: 0 !important;}
+    }
+}
+//Page Produit
+.display-n {display: none;}
+.img--produit {width: 100%;}
+#partie--description {margin-top: 1em;}
+#description {
+    text-align: justify;
+}
+
+
+.red {background: red;}
+.green {background: green;}

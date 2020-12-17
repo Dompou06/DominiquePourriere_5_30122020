@@ -1,0 +1,45 @@
+//Pour mobile
+@import "libs/variables.scss";
+@import "libs/functions.scss";
+
+@media #{$mobile-up} {
+    #panier {
+        & img {
+            width: 100%;
+            margin-top: 1em;
+        }
+    }
+    .txt--panier {display: none !important;}
+    ul {
+        & li {
+            & img {
+            width: 120%;
+            }            
+            & h4 {
+            font-size: em(16, $tbase) !important;
+            }
+        }
+    }
+    .commande {
+        & label {display: none !important;}
+    }
+    footer {margin-top: 1em;}
+}
+//Page Produit
+#ajoutPanier {margin-top: 1em;}
+//Page Index
+.main--index {
+    padding: 0 !important;
+    & section {
+        padding: 0 !important;
+        & ul {
+            padding: 0 !important;
+            & li {
+                padding: 0 !important;
+                & .index--img {
+                    margin-left: -2em;
+                }
+            }
+        }
+    }
+}
