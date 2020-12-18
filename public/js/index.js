@@ -1,3 +1,4 @@
+//https://www.grafikart.fr/tutoriels/ajax-780
 //Connection à mongodb
 let request = new XMLHttpRequest();
 request.onreadystatechange = function() {
@@ -17,20 +18,22 @@ request.onreadystatechange = function() {
         let result = document.getElementById('liste');
         //On vide le ul en page d'accueil
         result.innerHTML = '';
+
+//https://www.xul.fr/html5/innerhtml.php
+
+
          for(let i = 0; i < results.length; i++) {
-             //let li = document.createElement('li');
-             let n = i + Number(1);
+             //Voir tous les résultats
+             //console.log(results[i]);
              let li = document.createElement('li');
-             li.id = n;
+             li.id = results[i]._id;
              li.classList = 'col-12 col-sm-12 col-lg-6 text-center cursor';
-             li.innerHTML = '<div class="col-12"></div>';
-             let div = document.createElement('div');
-             li.appendChild(div);
-             //li.innerHTML = results[i].name;
+             li.innerHTML = '<div class="col-12"><img class="index--img" id="imageUr_'+i+'" src="'+results[i].imageUrl+'" alt="'+results[i].name+'" title="'+results[i].name+'" /><h3>'+results[i].name+'</h3></div>';
              //On remplit à chaque occuence le ul
              result.appendChild(li);
          }
         }
+        //Si on ne peut se connecter à la base de données
         else {           
         //On remmplit le sous-titre
         sstitre.innerHTML = 'Aucune caméra vintage n\'est disponible';
