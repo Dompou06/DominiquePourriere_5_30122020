@@ -1,0 +1,54 @@
+@import "libs/variables.scss";
+@import "libs/functions.scss";
+
+@media #{$desktop-up} {
+    html, body {
+      overflow: hidden;
+    }  
+    #panier {
+        margin-left: 5em;
+        & img {
+            width: 30%;
+            margin: .5em 0 0 .2em;
+        }
+    }
+    .total{text-align: right;}
+    .main--panier {
+        height: 75vh;
+        overflow-y: auto;
+        padding-bottom: 1em;
+        ul {
+            & li {
+                & img {
+            width: 100%;
+                }
+            }
+        }
+    }
+
+    #commander {margin-top: 1em;}
+    footer {height: 15vh;}
+//Produit
+.aside--prod {height: 75vh;}
+#ajoutPanier {margin-top: 3em;}
+//Index
+.main--index {
+    @extend .aside--prod;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 3em;
+    & ul {
+       & li {
+        text-align: center;
+
+          & .index--img {
+            //  margin-right: 1em;
+              width: 98%;
+          }
+          
+       } 
+    }
+}
+
+
+}
