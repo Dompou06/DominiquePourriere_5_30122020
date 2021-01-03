@@ -19,6 +19,12 @@ let urlMongo = 'http://localhost:3000/api/cameras/';
 liste().then(function(produits){
     //console.log(produits);
     //console.log(produits.length);
+        //On renseigne le nombre d'élément dans le panier
+        let idsPanier = init();
+        let nbProd = idsPanier.length;
+       // console.log(nbProd);
+        let nbPanier = document.getElementById('panier--nb');
+        nbPanier.innerHTML = nbProd;
     //On remmplit le sous-titre
     let sstitre = document.getElementById('index--sstitre');
     sstitre.innerHTML = 'Caméras vintages'; 
@@ -38,9 +44,10 @@ liste().then(function(produits){
    //On remplit à chaque occurence le ul
    ulListe.appendChild(li);
     }    
-   //On crée une constatnte qui vise tous les <li></li>
+   //On vise tous les <li></li>
     let lis = document.querySelectorAll('ul > li');
     //console.log(lis.length);
+    //Si click on envoie vers la page Produit.html avec le id du produit
     let goToProd = function () {
        // console.log(this.id);
         window.location.href = "./pages/produit.html?prod="+this.id;

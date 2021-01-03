@@ -32,7 +32,6 @@
         <script src="./js/connexion.js"></script>
         <script src="./js/gestionpanier.js"></script>
         <script src="./js/index.js"></script>
-        <script src="./js/gotoprod.js"></script>
     </head>
     <body>
         <header class="col-12">
@@ -42,9 +41,11 @@
                     <div class="row">
                         <a href="./pages/panier.html" id="panier">
                             <div class="col-12 col-sm-12 col-lg-12">
-                                <img src="./img/caddie.svg" alt="Picto de caddie" />                                
+                                <div class="row mt-3">
+                                    <img class="panier--img" src="./img/caddie.svg" alt="Picto de caddie" />
+                                    <div id="panier--nb"></div>                               
+                                </div>
                             </div>
-                            <div class="txt--panier col-12 col-sm-12 col-lg-12">Panier</div>
                         </a>
                     </div>
                 </div>          
@@ -56,7 +57,7 @@
             <article class="col-12">
                 <h2 id="index--sstitre"></h2>
                 <ul class="row" id="liste">
-                 <!-- Liste des produits implémentée vi index.js -->   
+                 <!-- Liste des produits implémentée via index.js -->   
                 </ul>
             </article>
         </section>
@@ -71,6 +72,8 @@
                 <a href="index.html" aria-label="Lien vers site d'Oricono"><img src="./img/logo/oricono.png" alt="Logo d'Oricono" title="Oricono" /></a>
                 © 2020 Oricono
             </div>    
-        </footer>    
+        </footer>
+        
+    
     </body>
 </html>
