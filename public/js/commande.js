@@ -34,7 +34,7 @@ window.onload = function(){
                 city: ville,
                 email: mail
             },
-            //Et le contenu du localstorage
+            //Et le contenu du localstorage (produits dans le panier)
             products: init()
             };
             let urlPostMongo = "http://localhost:3000/api/cameras/order";
@@ -44,7 +44,6 @@ window.onload = function(){
             //ainsi que le type de contenu (JSON)
 
             request("POST", urlPostMongo, JSON.stringify(order), 'application/json').then(function (results) {
-                //console.log(donneesPost.orderid);
                 //On lit la réponse de BD Mongo
                // let donneesPost = JSON.parse(results);
                // console.log(donneesPost.orderId);
@@ -54,13 +53,14 @@ window.onload = function(){
             console.log(result);
           });*/
             //On charge la page commande.html en lui mettant en paramètre la reponse de l'order_id de MongoDB
-            window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
+            //window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
             }).catch(function(error){
-               // console.error(error);
+                console.error(error);
                let donneesPost = JSON.parse(error);
                //console.log(donneesPost.orderId);
-              // window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
+               window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
             });
+
         }
     }
 }

@@ -4,6 +4,7 @@ let idsPanier = init();
 //On initialise une variable du total général
 let total = 0;
 //On fait une boucle sur le tableau en localStorage
+//Pour chaque id de produit
 idsPanier.forEach(function (panierId) {
   //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
   let urlMongo = "http://localhost:3000/api/cameras/" + panierId;
@@ -26,7 +27,7 @@ idsPanier.forEach(function (panierId) {
     <option value="2">2</option>
     <option value="3">3</option>
     </select>
-    <div id="${idDB._id}" class="icon-bin" onClick="supprimer(this.id)"></div>
+    <div id="${idDB._id}" class="icon-bin cursor" onClick="supprimer(this.id)"></div>
     </div>
     <input type="hidden" id="pu_${idDB._id}" value="${idDB.price}" />
     <p>Prix : <span id="price_${idDB._id}" class="price">${idDB.price / 100}</span> €</p>
