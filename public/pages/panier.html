@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index,follow">
+        <meta name="description" content="Oricam est une appli e-commerce spécialisée dans les caméras vintages." />
+        <meta name="copyright" content="Copyright Orinoco" />
+        <meta name="author" content="Author Orinoco" />
+        <meta name="twitter:card" content="e-commerce">
+        <meta name="twitter:site" content="Oricam">
+        <meta name="twitter:title" content="Oricam">
+        <meta name="twitter:description" content="Oricam est une appli e-commerce spécialisée dans les caméras vintages.">
+        <meta name="twitter:creator" content="@paul">
+        <meta name="twitter:image" content="https://oricam.com/img/logo/log_200x200.png">
+    <!-- Facebook data -->
+    <meta property="og:title" content="Oricam">
+    <meta property="og:type" content="e-commerce">
+    <meta property="og:url" content="https://oricam.com/">
+    <meta property="og:image" content="https://oricam.com/img/logo/log_200x200.png">
+    <meta property="og:description" content="Oricam est une appli e-commerce spécialisée dans les caméras vintages."> 
+    <meta property="og:site_name" content="Oricam">
+    <meta property="fb:admins" content="Facebook numeric ID">
+    <title>Oricam, votre panier avec les articles choisis</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-m.css" rel="stylesheet">
+    <link href="../css/style-d.css" rel="stylesheet">
+    <link href="../css/icomoon/style.css" rel="stylesheet">
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js" crossorigin="anonymous" defer></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="../favicon.jpg" />
+    <script src="../js/connexion.js"></script>
+    <script src="../js/gestionpanier.js"></script>
+    <script src="../js/panier.js"></script>
+    <script src="../js/commande.js"></script>
+    <script src="../../controllers/camera.js"></script>
+    </head>
+    <body>
+        <header class="col-12">
+            <nav class="row">
+                <div class="col-10 col-sm-10 col-lg-10"><h1><a href="../index.html">Oricam</a></h1> </div>
+                <div class="col-2 col-sm-2 col-lg-2">
+                    <div class="row">
+                        <a href="panier.html" id="panier">
+                            <div class="col-12 col-sm-12 col-lg-12">
+                                <div class="row mt-3">
+                                    <img class="panier--img" src="../img/caddie.svg" alt="Picto de caddie" />
+                                    <div id="panier--nb"></div>                               
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>          
+                 
+            </nav>
+        </header>
+        <main class="main--panier">
+            <section class="col-12">              
+                <div class="row">
+                   <article class="col-12 col-sm-12 col-lg-8">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-lg-8">
+                                <h2>Votre panier</h2>  
+                            </div>
+                            <div class="col-12 col-sm-12 col-lg-4">
+                                <h3><span class="total">Prix total : <span id="price--total"></span> €</span></h3>
+                            </div>
+                        </div>  
+                    <ul id="panier--ul">
+                    </ul>
+                   </article>
+                   <aside class="col-12 col-sm-12 col-lg-4">
+                    <h2>S'inscrire</h2>
+                    <div class="col-12 commande">
+                        <div class="row mb-3">
+                            <label class="col-3 text-right" for="nom">Nom</label>
+                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="nom" name="nom" aria-label="Indiquez votre nom" placeholder="Nom" required />
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-3 text-right" for="prenom">Prénom</label>
+                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="prenom" name="prenom" aria-label="Indiquez votre prénom" placeholder="Prénom" required />
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-3 text-right" for="adresse">Adresse</label>
+                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="adresse" name="adresse" aria-label="Indiquez votre adresse" placeholder="Adresse" required />
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-3 text-right" for="ville">Ville</label>
+                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="ville" name="ville" aria-label="Indiquez votre ville" placeholder="Ville" required />
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-3 text-right" for="email">Email</label>
+                            <input type="email" class="col-12 col-sm-12 col-lg-9 form-control" id="email" name="email" aria-label="Indiquez votre adresse email" placeholder="Email" required />
+                        </div>
+                        <button id="commander" class="col-12">Commander</button>
+                    </div>
+                   </aside>
+                </div>
+            </section>
+        </main>
+        <footer class="pb-3 pt-2">
+            <div class="row ml-2 mr-2 text-white">
+                <div class="col-12 col-sm-12 col-lg-4">A propos</div>
+                <div class="col-12 col-sm-12 col-lg-4">Livraison</div>
+                <div class="col-12 col-sm-12 col-lg-4">Conditions générales de vente</div>
+            </div>
+            <div class="text-center mt-3 copyright">
+                <a href="../index.html" aria-label="Lien vers site d'Oricono"><img src="../img/logo/oricono.png" alt="Logo d'Oricono" title="Oricono" /></a>
+                © 2020 Oricono
+            </div>    
+        </footer>
+    </body>
+</html>
