@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+    <head>    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index,follow">
+        <meta name="description" content="Oricam est une appli e-commerce spécialisée dans les caméras vintages." />
+        <meta name="copyright" content="Copyright Orinoco" />
+        <meta name="author" content="Author Orinoco" />
+        <meta name="twitter:card" content="e-commerce">
+        <meta name="twitter:site" content="Oricam">
+        <meta name="twitter:title" content="Oricam">
+        <meta name="twitter:description" content="Oricam est une appli e-commerce spécialisée dans les caméras vintages.">
+        <meta name="twitter:creator" content="@paul">
+        <meta name="twitter:image" content="https://oricam.com/img/logo/log_200x200.png">
+    <!-- Facebook data -->
+    <meta property="og:title" content="Oricam">
+    <meta property="og:type" content="e-commerce">
+    <meta property="og:url" content="https://oricam.com/">
+    <meta property="og:image" content="https://oricam.com/img/logo/log_200x200.png">
+    <meta property="og:description" content="Oricam est une appli e-commerce spécialisée dans les caméras vintages."> 
+    <meta property="og:site_name" content="Oricam">
+    <meta property="fb:admins" content="Facebook numeric ID">
+    <title>Oricam, votre panier avec les articles choisis</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-m.css" rel="stylesheet">
+    <link href="../css/style-d.css" rel="stylesheet">
+    <link href="../css/icomoon/style.css" rel="stylesheet">
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js" crossorigin="anonymous" defer></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="../favicon.jpg" />
+    <script src="../js/connexion.js"></script>
+    <script src="../js/gestionpanier.js"></script>
+    <script src="../js/remerciement.js"></script>
+    </head>
+    <body>
+        <header class="col-12">
+            <nav class="row">
+                <div class="col-10 col-sm-10 col-lg-10"><h1><a href="../index.html">Oricam</a></h1> </div>
+                <div class="col-2 col-sm-2 col-lg-2">
+                    <div class="row">
+                        <a href="panier.html" id="panier">
+                            <div class="col-12 col-sm-12 col-lg-12">
+                                <div class="row mt-3">
+                                    <img class="panier--img" src="../img/caddie.svg" alt="Picto de caddie" />
+                                    <div id="panier--nb"></div>                               
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>          
+                 
+            </nav>
+        </header>
+        <main class="main--panier">
+            <section class="col-12">              
+                <div class="row">
+                   <article class="col-12 col-sm-12 col-lg-8">
+                       <p><span id="prenom-commande"></span> <span id="nom-commande"></span></p>
+                        votre commande réf. : <span id="id-commande"></span> d'un montant de 
+                        <span id="montant-commande"></span> € a bien été enregistrée.
+                        <p>Nous remercions de nous faire confiance, vous recevrez rapidement votre caméra.</p>
+                   </article>
+                   
+                </div>
+            </section>
+        </main>
+        <footer class="pb-3 pt-2">
+            <div class="row ml-2 mr-2 text-white">
+                <div class="col-12 col-sm-12 col-lg-4">A propos</div>
+                <div class="col-12 col-sm-12 col-lg-4">Livraison</div>
+                <div class="col-12 col-sm-12 col-lg-4">Conditions générales de vente</div>
+            </div>
+            <div class="text-center mt-3 copyright">
+                <a href="../index.html" aria-label="Lien vers site d'Oricono"><img src="../img/logo/oricono.png" alt="Logo d'Oricono" title="Oricono" /></a>
+                © 2020 Oricono
+            </div>    
+        </footer>
+    </body>
+</html>
