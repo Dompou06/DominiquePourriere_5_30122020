@@ -45,20 +45,15 @@ window.onload = function(){
 
             request("POST", urlPostMongo, JSON.stringify(order), 'application/json').then(function (results) {
                 //On lit la réponse de BD Mongo
-               // let donneesPost = JSON.parse(results);
-               // console.log(donneesPost.orderId);
-          /*      let postorderid = fetch(urlPostMongo).then(function(reponse){
-            return reponse.json();
-          }).then(function(result){
-            console.log(result);
-          });*/
+                let donneesPost = JSON.parse(results);
+            // console.log(donneesPost.orderId);
             //On charge la page commande.html en lui mettant en paramètre la reponse de l'order_id de MongoDB
-            //window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
+            window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
             }).catch(function(error){
                 console.error(error);
-               let donneesPost = JSON.parse(error);
+              // let donneesPost = JSON.parse(error);
                //console.log(donneesPost.orderId);
-               window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
+              // window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
             });
 
         }

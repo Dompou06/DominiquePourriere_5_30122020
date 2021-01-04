@@ -1,25 +1,34 @@
-let remerciement = function(){
-return new Promise(function(resolve, reject){   
-//On récupère url
-const query = new URLSearchParams(window.location.search);
-//On récupère le paramètre insérer dans la partie get prod
-let id = query.get('orderId'); 
-//On crée une variable qui mène vers le produit dont le _id est celui récupéré 
-let urlPostMongo = "http://localhost:3000/api/cameras/order/"+id;
-//On envoie la promise request
-    request('GET', urlPostMongo).then(function (reponse) {
-        let element = JSON.parse(reponse);
-        resolve(element);
-        console.log(element);
-
-    }).catch(function (error) {
-        //Sinon, 
-        let msgError = 'La commande n\'a pas pu être effectuée';
-        reject(msgError);       
-     });
-     });
+//Au chargement de la page
+window.onload = function() {
+    //On récupère le paramètre insérer la partie get orderId
+    let params = window.location.search;
+    //console.log(params);
+    //On récupère le contenu de orderId
+    let searchParams = new URLSearchParams(params);
+    let id = searchParams.get("orderId");
+    //console.log(id);
+    ///On indique la référence (ordrerId)
+    document.getElementById('id-commande').innerHTML = id;
+    //On récupère le tableau contenu dans LocalStorage
+    let idsPanier = init();
+    // console.log(idsPanier);
+    //On initialise une variable du total général
+    let total = 0;
+        idsPanier.forEach(function (panierId) {
+            //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
+            let urlMongo = "http://localhost:3000/api/cameras/" + panierId;
+            //On envoie via la promise une requête GET à la BD Mongo
+            request("GET", urlMongo).then(function (result) {
+                //On transforme la chaîne reçue en objet JS
+                let idDB = JSON.parse(result);
+                total += idDB.price / 100;
+                document.getElementById('montant-commande').innerHTML = total.toFixed(2);   
+                //On renseigne le nombre d'élément dans le panier
+            });   
+        });
+            //On vide le localStorage
+            clear(idsPanier);
 }
-//Si la promise et résolue
-remerciement().then(function(element){
-    console.log(element.firstname);
-});
+
+
+

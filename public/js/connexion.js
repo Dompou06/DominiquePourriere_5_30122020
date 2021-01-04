@@ -9,8 +9,8 @@ let request = function (method, url, data=null, contentType=null) {
         request.onreadystatechange = function () {
             //Si l'état arrive à étape 4 : (0)création puis (1)appel de open(), (2)appel de send(), (3)téléchargement via responseText, (4) Fin de l'opération 
                 if (request.readyState === 4) {
-                        //On vérifie qu'il n'y pas d'erreur dans l'adresse url vers mongodb
-                        if(request.status === 200) {
+                        //On vérifie qu'il n'y pas d'erreur dans le statut de lapromise vers mongodb (200 pour Get et 201 pour Post)
+                        if(request.status === 200 || request.status === 201) {
                             resolve(request.responseText);
                         }
                         //Si cela a échoué
