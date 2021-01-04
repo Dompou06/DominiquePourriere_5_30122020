@@ -4,16 +4,16 @@
 /* Convertir pixel en em */
 /* Convertir pixel en % */
 /* Convertir pixel en vw */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   html, body {
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   #panier {
     margin-left: 5em;
   }
   #panier img {
-    width: 2vw;
+    width: 3vw;
     margin: 0.2em 0.5em 0 0.2em;
   }
 
@@ -23,7 +23,7 @@
 
   .main--panier {
     height: 75vh;
-    overflow-y: hidden;
+    overflow-y: auto;
     padding-bottom: 1em;
   }
   .main--panier ul li img {
@@ -42,15 +42,16 @@
     height: 15vh;
   }
 
-  .aside--prod, .main--index {
-    height: 75vh;
+  .img--produit {
+    margin-left: -0.5em;
   }
 
-  #ajoutPanier {
-    margin-top: 3em;
+  .aside--prod {
+    text-align: center;
   }
 
   .main--index {
+    height: 75vh;
     overflow-y: scroll;
     overflow-x: hidden;
     margin-left: 3em;
@@ -63,4 +64,4 @@
   }
 }
 
-/*# sourceMappingURL=style-d.css.map */
+/*# sourceMappingURL=style-t.css.map */
