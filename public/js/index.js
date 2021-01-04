@@ -33,7 +33,7 @@ liste().then(function(produits){
     ulListe.innerHTML = '';
     for(let i = 0; i < produits.length; i++) {
     //Voir tous les résultats
-   // console.log(produits[i].name);
+    //console.log(produits[i].name);
    let li = document.createElement('li');
    li.id = produits[i]._id;
    li.classList = 'col-12 col-sm-12 col-lg-6 text-center cursor';
