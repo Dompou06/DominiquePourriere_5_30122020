@@ -6,7 +6,8 @@
   "scripts": {
     "style": "sass --watch ./sass/style.scss:./public/css/style.css",
     "desktop": "sass --watch ./sass/style-d.scss:./public/css/style-d.css",
-    "mobile": "sass --watch ./sass/style-m.scss:./public/css/style-m.css"
+    "mobile": "sass --watch ./sass/style-m.scss:./public/css/style-m.css",
+    "tablette": "sass --watch ./sass/style-t.scss:./public/css/style-t.css"
   },
   "author": "",
   "license": "ISC",

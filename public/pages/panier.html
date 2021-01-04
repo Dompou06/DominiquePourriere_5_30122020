@@ -25,10 +25,11 @@
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style-m.css" rel="stylesheet">
     <link href="../css/style-d.css" rel="stylesheet">
+    <link href="../css/style-t.css" rel="stylesheet">
     <link href="../css/icomoon/style.css" rel="stylesheet">
-    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js" crossorigin="anonymous" defer></script>
-    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/bootstrap.min.js" crossorigin="anonymous" defer></script>
     <link rel="icon" type="image/jpg" href="../favicon.jpg" />
     <script src="../js/connexion.js"></script>
     <script src="../js/gestionpanier.js"></script>
@@ -45,7 +46,7 @@
                             <div class="col-12 col-sm-12 col-lg-12">
                                 <div class="row mt-3">
                                     <img class="panier--img" src="../img/caddie.svg" alt="Picto de caddie" />
-                                    <div id="panier--nb"></div>                               
+                                    <div id="panier--nb">0</div>                               
                                 </div>
                             </div>
                         </a>
@@ -55,42 +56,43 @@
             </nav>
         </header>
         <main class="main--panier">
-            <section class="col-12">              
+            <section class="col-12">
+                <h2 class="display-n">Panier</h2>              
                 <div class="row">
-                   <article class="col-12 col-sm-12 col-lg-8">
+                   <article class="col-12 col-sm-8 col-lg-8">
                         <div class="row">
-                            <div class="col-12 col-sm-12 col-lg-8">
+                            <div class="col-12 col-sm-6 col-lg-8">
                                 <h2>Votre panier</h2>  
                             </div>
-                            <div class="col-12 col-sm-12 col-lg-4">
+                            <div class="col-12 col-sm-6 col-lg-4">
                                 <h3><span class="total">Prix total : <span id="price--total"></span> €</span></h3>
                             </div>
                         </div>  
                     <ul id="panier--ul">
                     </ul>
                    </article>
-                   <aside class="col-12 col-sm-12 col-lg-4">
+                   <aside id="panier--aside" class="col-12 col-sm-4 col-lg-4">
                     <h2>S'inscrire</h2>
                     <div class="col-12 commande">
                         <div class="row mb-3">
                             <label class="col-3 text-right" for="nom">Nom</label>
-                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="nom" name="nom" aria-label="Indiquez votre nom" placeholder="Nom" required />
+                            <input type="text" class="col-12 col-sm-9 col-lg-9 form-control" id="nom" name="nom" aria-label="Indiquez votre nom" placeholder="Nom" required />
                         </div>
                         <div class="row mb-3">
                             <label class="col-3 text-right" for="prenom">Prénom</label>
-                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="prenom" name="prenom" aria-label="Indiquez votre prénom" placeholder="Prénom" required />
+                            <input type="text" class="col-12 col-sm-9 col-lg-9 form-control" id="prenom" name="prenom" aria-label="Indiquez votre prénom" placeholder="Prénom" required />
                         </div>
                         <div class="row mb-3">
                             <label class="col-3 text-right" for="adresse">Adresse</label>
-                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="adresse" name="adresse" aria-label="Indiquez votre adresse" placeholder="Adresse" required />
+                            <input type="text" class="col-12 col-sm-9 col-lg-9 form-control" id="adresse" name="adresse" aria-label="Indiquez votre adresse" placeholder="Adresse" required />
                         </div>
                         <div class="row mb-3">
                             <label class="col-3 text-right" for="ville">Ville</label>
-                            <input type="text" class="col-12 col-sm-12 col-lg-9 form-control" id="ville" name="ville" aria-label="Indiquez votre ville" placeholder="Ville" required />
+                            <input type="text" class="col-12 col-sm-9 col-lg-9 form-control" id="ville" name="ville" aria-label="Indiquez votre ville" placeholder="Ville" required />
                         </div>
                         <div class="row mb-3">
                             <label class="col-3 text-right" for="email">Email</label>
-                            <input type="email" class="col-12 col-sm-12 col-lg-9 form-control" id="email" name="email" aria-label="Indiquez votre adresse email" placeholder="Email" required />
+                            <input type="email" class="col-12 col-sm-9 col-lg-9 form-control" id="email" name="email" aria-label="Indiquez votre adresse email" placeholder="Email" required />
                         </div>
                         <button id="commander" class="col-12">Commander</button>
                     </div>
@@ -100,9 +102,9 @@
         </main>
         <footer class="pb-3 pt-2">
             <div class="row ml-2 mr-2 text-white">
-                <div class="col-12 col-sm-12 col-lg-4">A propos</div>
-                <div class="col-12 col-sm-12 col-lg-4">Livraison</div>
-                <div class="col-12 col-sm-12 col-lg-4">Conditions générales de vente</div>
+                <div class="col-12 col-sm-4 col-lg-4">A propos</div>
+                <div class="col-12 col-sm-4 col-lg-4">Livraison</div>
+                <div class="col-12 col-sm-4 col-lg-4">Conditions générales de vente</div>
             </div>
             <div class="text-center mt-3 copyright">
                 <a href="../index.html" aria-label="Lien vers site d'Oricono"><img src="../img/logo/oricono.png" alt="Logo d'Oricono" title="Oricono" /></a>

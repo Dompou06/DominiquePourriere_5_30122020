@@ -1,8 +1,10 @@
 //On récupère le tableau contenu dans LocalStorage
 let idsPanier = init();
-// console.log(idsPanier);
+ //console.log(idsPanier);
 //On initialise une variable du total général
 let total = 0;
+//Si le panier n'est pas vide
+//console.log(idsPanier.length);
 //On fait une boucle sur le tableau en localStorage
 //Pour chaque id de produit
 idsPanier.forEach(function (panierId) {
@@ -59,13 +61,15 @@ function newPrix(idSelect, quantite){
   document.getElementById(idPrice).innerHTML = newPrice / 100;
   //On change le prix total
   document.getElementById('price--total').innerHTML = ((totalPrixIntermediaire + newPrice)/100).toFixed(2);
-}
+};
 function supprimer(idProd){
   //On récupère l'id et on utilise la function dans gestionpanier.js pour supprimer l'élément
   remove(idProd);
   //On recharge la page
   document.location.reload();
 }
+
+
 
 
 

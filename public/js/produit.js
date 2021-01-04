@@ -46,7 +46,7 @@ produit().then(function(element){
     </select>
     <div class="col-12" id="prix">Prix unitaire : <span class="price">${element.price / 100}</span> €
     </div>
-    <div class="col-12 pr-4" id="partie--description"><h3>Description</h3>
+    <div class="col-12 pr-4" id="partie--description"><h4>Description</h4>
     <p id="description">${element.description}</p>
     </div></div></div></div>`;      
     article.innerHTML = articleInnerHTML;
@@ -60,7 +60,7 @@ produit().then(function(element){
     }    
     //On renseigne le formulaire pour le post 
     let form = document.getElementById('form--prod');
-    let titleProd = document.createElement('h2');
+    let titleProd = document.createElement('h4');
     titleProd.innerHTML = `Souhaitez-vous ajouter la caméra ${element.name} à votre panier ?`;
     form.prepend(titleProd);
     //On indique le id du produit dans le formulaire (input caché)

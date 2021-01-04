@@ -59,11 +59,28 @@ ul {
   padding: 0 !important;
   list-style: none;
 }
+ul li {
+  padding-bottom: 1em;
+}
 ul li h4 {
   margin: -0.2em 0 0 0 !important;
 }
 ul li p {
   margin: 0 !important;
+}
+ul li select {
+  height: 1.5em !important;
+  padding: 0 !important;
+}
+ul li select option {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+ul li .icon-bin {
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-left: 0.5em;
+  color: #acaaa3;
 }
 
 .display-n {
@@ -80,6 +97,10 @@ ul li p {
 
 #description {
   text-align: justify;
+}
+
+#remerciements {
+  text-align: center;
 }
 
 .red {
