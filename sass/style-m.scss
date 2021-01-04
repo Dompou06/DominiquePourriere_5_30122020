@@ -5,8 +5,8 @@
 @media #{$mobile-up} {
     #panier {
         & img {
-            width: 100%;
-            margin-top: 1em;
+            width: 7vw;
+            margin: 0 .3em 0 0;
         }
     }
     .txt--panier {display: none !important;}
@@ -23,7 +23,6 @@
     .commande {
         & label {display: none !important;}
     }
-    footer {margin-top: 1em;}
 }
 //Page Produit
 #ajoutPanier {margin-top: 1em;}
@@ -42,4 +41,14 @@
             }
         }
     }
+}
+//Page Panier
+#panier--aside{padding-bottom: 1em;}
+//Page Remerciement
+#remerciements{
+    height: 68vh;
+    padding-top: 20vh;
+}
+footer{
+    height: 22vh;
 }

@@ -8,14 +8,14 @@
     #panier {
         margin-left: 5em;
         & img {
-            width: 30%;
-            margin: .5em 0 0 .2em;
+            width: 2vw;
+            margin: .2em .5em 0 .2em;
         }
     }
     .total{text-align: right;}
     .main--panier {
         height: 75vh;
-        overflow-y: auto;
+        overflow-y: hidden;
         padding-bottom: 1em;
         ul {
             & li {
@@ -25,7 +25,9 @@
             }
         }
     }
-
+    #panier--aside{
+        height: 75vh;
+    }
     #commander {margin-top: 1em;}
     footer {height: 15vh;}
 //Produit

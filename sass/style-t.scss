@@ -1,0 +1,55 @@
+@import "libs/variables.scss";
+@import "libs/functions.scss";
+
+@media #{$tablet-up} { 
+    html, body {
+        overflow-x: hidden;
+      } 
+    #panier {
+        margin-left: 5em;
+        & img {
+            width: 3vw;
+            margin: .2em .5em 0 .2em;
+        }
+    }
+    .total{text-align: right;}
+    .main--panier {
+        height: 75vh;
+        overflow-y: auto;
+        padding-bottom: 1em;
+        ul {
+            & li {
+                & img {
+            width: 100%;
+                }
+            }
+        }
+    }
+
+    #panier--aside{
+        height: 75vh;
+    }
+    #commander {margin-top: 1em;}
+    footer {height: 15vh;}
+//Produit
+.img--produit{margin-left: -0.5em;}
+.aside--prod {text-align: center;}
+//Index
+.main--index {
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 3em;
+    & ul {
+       & li {
+        text-align: center;
+          & .index--img {
+              width: 98%;
+          }
+          
+       } 
+    }
+}
+
+
+}

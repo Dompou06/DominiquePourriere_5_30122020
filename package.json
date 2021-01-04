@@ -6,17 +6,21 @@
   "scripts": {
     "style": "sass --watch ./sass/style.scss:./public/css/style.css",
     "desktop": "sass --watch ./sass/style-d.scss:./public/css/style-d.css",
-    "mobile": "sass --watch ./sass/style-m.scss:./public/css/style-m.css"
+    "mobile": "sass --watch ./sass/style-m.scss:./public/css/style-m.css",
+    "tablette": "sass --watch ./sass/style-t.scss:./public/css/style-t.css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
     "express": "^4.17.1",
+    "jquery": "^3.5.1",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.11.8",
     "mongoose-unique-validator": "^2.0.2",
+    "popper.js": "^1.16.1",
     "uuid": "^3.4.0"
   }
 }

@@ -6,8 +6,8 @@
 /* Convertir pixel en vw */
 @media only screen and (max-width: 767px) {
   #panier img {
-    width: 100%;
-    margin-top: 1em;
+    width: 7vw;
+    margin: 0 0.3em 0 0;
   }
 
   .txt--panier {
@@ -23,10 +23,6 @@
 
   .commande label {
     display: none !important;
-  }
-
-  footer {
-    margin-top: 1em;
   }
 }
 #ajoutPanier {
@@ -47,6 +43,19 @@
 }
 .main--index section ul li .index--img {
   margin-left: -2em;
+}
+
+#panier--aside {
+  padding-bottom: 1em;
+}
+
+#remerciements {
+  height: 68vh;
+  padding-top: 20vh;
+}
+
+footer {
+  height: 22vh;
 }
 
 /*# sourceMappingURL=style-m.css.map */
