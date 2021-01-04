@@ -50,10 +50,7 @@ window.onload = function(){
             //On charge la page commande.html en lui mettant en paramètre la reponse de l'order_id de MongoDB
             window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
             }).catch(function(error){
-                console.error(error);
-              // let donneesPost = JSON.parse(error);
-               //console.log(donneesPost.orderId);
-              // window.location.assign(`/public/pages/commande.html?orderId=${donneesPost.orderId}`);
+                alert('La commande n\'a pu être enregistrée');
             });
 
         }
