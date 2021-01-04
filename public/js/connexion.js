@@ -1,5 +1,5 @@
 //On crée une fonction qui recevra les paramètres de connection à la base de données
-//Les paramètres lors de l'envoi (data et contentType) sont facultatif via = null
+//Et les paramètres lors de l'envoi de données (data et contentType) facultatifs via = null
 let request = function (method, url, data=null, contentType=null) {
     //On crée une promise qui se résoudra plus tard (asyncrone)
     return new Promise(function(resolve, reject){
