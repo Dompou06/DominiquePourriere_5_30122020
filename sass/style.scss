@@ -15,7 +15,7 @@ header {
     height: 10vh;
     & nav {
         color: #fff;
-        & a {color: #fff;}  
+        & a {color: #fff;}
     }
 }
 aside {
@@ -43,10 +43,25 @@ ul {
     padding: 0 !important;
     list-style:none;
     & li {
+        padding-bottom: 1em;
         & h4 {
             margin: -.2em 0 0 0 !important;
         }
         & p {margin: 0 !important;}
+        & select{
+            height: 1.5em !important;
+            padding: 0 !important;
+            & option{
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+        & .icon-bin{
+            font-size: 1.5em;
+            line-height: 1em;
+            margin-left: .5em;
+            color: rgb(172, 170, 163);
+        }
     }
 }
 //Page Produit
@@ -55,6 +70,10 @@ ul {
 #partie--description {margin-top: 1em;}
 #description {
     text-align: justify;
+}
+//Page Remerciement
+#remerciements{
+    text-align: center;
 }
 
 

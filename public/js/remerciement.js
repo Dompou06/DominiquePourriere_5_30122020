@@ -24,10 +24,10 @@ window.onload = function() {
                 total += idDB.price / 100;
                 document.getElementById('montant-commande').innerHTML = total.toFixed(2);   
                 //On renseigne le nombre d'élément dans le panier
+                //On vide le localStorage
+                clear(idsPanier);
             });   
         });
-            //On vide le localStorage
-            clear(idsPanier);
 }
 
 
