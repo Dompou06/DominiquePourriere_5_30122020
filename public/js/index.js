@@ -1,64 +1,65 @@
 //On crée une fonction
-let liste = function(){
+const list = function(){
     return new Promise(function(resolve, reject){
-//On crée une variable qui mène vers la liste des caméras   
-let urlMongo = 'http://localhost:3000/api/cameras/';
+    //On crée une variable qui mène vers la liste des caméras   
+    const urlMongo = 'http://localhost:3000/api/cameras/';
         //On envoie la promise request
         request('GET', urlMongo).then(function (reponse) {
             //S'il y a une réponse, on la récupère sous forme d'objet JS
-        let element = JSON.parse(reponse);
+        const element = JSON.parse(reponse);
         resolve(element);
     }).catch(function (error) {
         //Sinon, 
-        let msgError = 'Cette caméra vintage n\'est disponible';
+        const msgError = 'Cette caméra vintage n\'est disponible';
         reject(msgError);       
      });
     });
 };
 //Si la promise et résolue
-liste().then(function(produits){
-    //console.log(produits);
-    //console.log(produits.length);
-        //On renseigne le nombre d'élément dans le panier
-        let idsPanier = init();
-        let nbProd = idsPanier.length;
-       // console.log(nbProd);
-        let nbPanier = document.getElementById('panier--nb');
-        nbPanier.innerHTML = nbProd;
+list().then(function(products){
+    //console.log(products);
+    //console.log(products.length);
+        //On renseigne le nombre d'éléments contenus dans le tableau du panier, via appel fonction init() de gestionpanier.js
+        const idsBasket = init();
+        const numberOfProducts = idsBasket.length;
+        //On indique le nombre dans le header de index.html
+        const numberInBasket = document.getElementById('panier--nb');
+        numberInBasket.innerHTML = numberOfProducts;
     //On remmplit le sous-titre
-    let sstitre = document.getElementById('index--sstitre');
-    sstitre.innerHTML = 'Caméras vintages'; 
-    let ulListe = document.getElementById('liste');
+    const subtitle = document.getElementById('index--sstitre');
+    subtitle.innerHTML = 'Caméras vintages'; 
+    const ulList = document.getElementById('liste');
     //On vide le ul en page d'accueil
-    ulListe.innerHTML = '';
-    for(let i = 0; i < produits.length; i++) {
-    //Voir tous les résultats
-    //console.log(produits[i].name);
-   let li = document.createElement('li');
-   li.id = produits[i]._id;
-   li.classList = 'col-12 col-sm-6 col-lg-6 text-center cursor';
-   li.innerHTML = `<div class="col-12">
-   <img class="index--img" id="imageUr_${i}" src="${produits[i].imageUrl}" alt="${produits[i].name}" title="${produits[i].name}" />
-   <h3>${produits[i].name}</h3>
-   </div>`;
-   //On remplit à chaque occurence le ul
-   ulListe.appendChild(li);
+    ulList.innerHTML = '';
+    //Boucle du nombre de produits contenus dans la bd
+    for(let eachProduct = 0; eachProduct < products.length; eachProduct++) {
+        //Création d'un li pour chaque produit
+        let newLi = document.createElement('li');
+        //Ajout d'un id avec le _id du produit
+        newLi.id = products[eachProduct]._id;
+        //Ajout de l'attribut class avec ses élément
+        newLi.classList = 'col-12 col-sm-6 col-lg-6 text-center cursor';
+        //Intégration du texte contenu dans le li
+        newLi.innerHTML = `<div class="col-12">
+        <img class="index--img" id="imageUr_${eachProduct}" src="${products[eachProduct].imageUrl}" alt="${products[eachProduct].name}" title="${products[eachProduct].name}" />
+        <h3>${products[eachProduct].name}</h3>
+        </div>`;
+        //On ajoute le li dans le ul
+        ulList.appendChild(newLi);
     }    
    //On vise tous les <li></li>
-    let lis = document.querySelectorAll('ul > li');
-    //console.log(lis.length);
-    //Si click on envoie vers la page Produit.html avec le id du produit
-    let goToProd = function () {
+    const allLi = document.querySelectorAll('ul > li');
+    //On envoie vers l'url de la page produit.html avec en paramètre (?) le id du produit
+    const goToPageProduit = function () {
        // console.log(this.id);
-        window.location.href = "./pages/produit.html?prod="+this.id;
+        window.location.href = "./pages/produit.html?idProduct="+this.id;
     }        
-    for (i=0; i<lis.length; i++) {
-    //On écoute les événements qui ont lieu = click
-    lis[i].addEventListener('click', goToProd);
+    for (clickLI=0; clickLI<allLi.length; clickLI++) {
+    //On écoute les événements qui ont lieu sur les li, si click, on utilise la fonction goToPageProduit
+    allLi[clickLI].addEventListener('click', goToPageProduit);
     }
 }).catch(function(error){
-    //console.log(error);
    //On remmplit le sous-titre si on reçoit une erreur
-    let sstitre = document.getElementById('index--sstitre');
+    const subtitle = document.getElementById('index--sstitre');
    sstitre.innerHTML = 'Aucune caméra vintage n\'est disponibles';
 });

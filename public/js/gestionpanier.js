@@ -1,34 +1,36 @@
 function init(){
-    //On récupère toutes les données déjà intégrées dans le localStorage
-        let panier = localStorage.getItem('panier');
-        if(panier != null){
-            //On parse le panier (on transforme la chaîne en objet JS)
-            return JSON.parse(panier);
+        //On récupère toutes les données déjà intégrées dans le localStorage
+        const basket = localStorage.getItem('basket');
+        if(basket != null){
+            //Si le panier n'est pas vide, on parse les values contenues dans la key basket (on transforme le JSON en objet JS)
+            return JSON.parse(basket);
         }
         else {
+            //Sinon, on retourne un tableau vide mais avec la création de la key basket
             return [];
         }
     }
-    //Ajouter des values dans un key : localStorage.setItem('key', value);
-    function add(idProd){
-        let panier = init();
-        //Méthode pour ajouter un nouvel item à la fin du tableau panier parsé
-        panier.push(idProd);
-        //On sérialise le nouvel objet tableau (on transforme les objets JS en chaîne JSON)
-        localStorage.setItem('panier', JSON.stringify(panier));
+//Ajouter des values dans un key (basket) : localStorage.setItem('key', value);
+function add(idProduct){
+        //On lance la fonction init
+        const basket = init();
+        //Méthode pour ajouter un nouvel item à la fin du tableau de la key basket parsé
+        basket.push(idProduct);
+        //On sérialise le nouvel tableau (on transforme les objets JS en chaîne JSON)
+        localStorage.setItem('basket', JSON.stringify(basket));
     }
-    //On supprime un item du localStorage
-    function remove(idProd){
-        let panier = init();
-        //On filtre tous les éléments du localStorage
-        panier = panier.filter(function(produit){
-            //On retourne ceux qui ne sont pas celui a supprimé (idProd)
-            return produit != this;
-        }, idProd);
+//On supprime un item des valeurs du tableau de la basket dans le localStorage
+function remove(idProduct){
+        let basket = init();
+        //On filtre tous les éléments du tableau
+        basket = basket.filter(function(product){
+            //On retourne ceux qui ne sont pas celui a supprimé (idProduct)
+            return product != this;
+        }, idProduct);
         //On les réinjecte dans le localStorage sous forme d'un JSOM
-        localStorage.setItem('panier', JSON.stringify(panier));
+        localStorage.setItem('basket', JSON.stringify(basket));
     }
-    //On supprime les items ayant la clé panier, quand on arrive à la page commande.html
-    function clear(){
-       localStorage.removeItem('panier');
+//On supprime la clé basket et donc le tableau qui s'y relie, quand on arrive à la page commande.html
+function clear(){
+       localStorage.removeItem('basket');
     }
