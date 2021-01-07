@@ -3,13 +3,14 @@
 let request = function (method, url, data=null, contentType=null) {
     //On crée une promise qui se résoudra plus tard (asyncrone)
     return new Promise(function(resolve, reject){
-        //On crée un objet permettant d'interagir avec une bd
+        //On crée un objet AJAX permettant d'obtenir ou envoyer des données JSON via HTTP
         let request = new XMLHttpRequest();
-        //On écoute les changements d'état de request
+        //On écoute les changements d'état de XMLHttpRequest
         request.onreadystatechange = function () {
-            //Si le dernier état est l'étape 4 : (0)création puis (1)appel de open(), (2)appel de send(), (3)téléchargement via responseText, (4) Fin de l'opération 
-                if (request.readyState === 4) {
-                        //On vérifie qu'il n'y pas d'erreur dans le statut de la promise vers mongodb (200 pour Get et 201 pour Post)
+            //Si le dernier état du client XMLHttpRequest est l'étape 4 : (0)création puis (1)appel de open(), (2)appel de send(), (3)téléchargement via responseText, (4) Fin de l'opération 
+            //https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest/readyState
+            if (request.readyState === 4) {
+                        //On vérifie qu'il n'y pas d'erreur dans le statut de l'objet XMLHttpRequest (200 = tout est ok et 201  = tout est ok et une nouvelle ressource a été créée)
                         if(request.status === 200 || request.status === 201) {
                             resolve(request.responseText);
                         }

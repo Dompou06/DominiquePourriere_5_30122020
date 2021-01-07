@@ -2,7 +2,7 @@ function init(){
     //On récupère toutes les données déjà intégrées dans le localStorage
         let panier = localStorage.getItem('panier');
         if(panier != null){
-            //On parse le panier (on transforme la chaîne en objet JS)
+            //On parse les values contenues dans la key panier (on transforme la chaîne en objet JS)
             return JSON.parse(panier);
         }
         else {
