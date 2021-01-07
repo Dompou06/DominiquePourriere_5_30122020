@@ -14,11 +14,11 @@ window.onload = function() {
     // console.log(idsPanier);
     //On initialise une variable du total général
     let total = 0;
-        idsPanier.forEach(function (panierId) {
+        idsPanier.forEach(function(panierId) {
             //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
             let urlMongo = "http://localhost:3000/api/cameras/" + panierId;
             //On envoie via la promise une requête GET à la BD Mongo
-            request("GET", urlMongo).then(function (result) {
+            request("GET", urlMongo).then(function(result) {
                 //On transforme la chaîne reçue en objet JS
                 let idDB = JSON.parse(result);
                 total += idDB.price / 100;

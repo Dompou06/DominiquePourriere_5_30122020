@@ -7,11 +7,11 @@ let total = 0;
 //console.log(idsPanier.length);
 //On fait une boucle sur le tableau en localStorage
 //Pour chaque id de produit
-idsBasket.forEach(function (basketId) {
+idsBasket.forEach(function(basketId) {
   //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
   const urlMongo = "http://localhost:3000/api/cameras/" + basketId;
   //On envoie via la promise une requête GET à la BD Mongo
-  request("GET", urlMongo).then(function (result) {
+  request("GET", urlMongo).then(function(result) {
     //On transforme la chaîne reçue en objet JS
       const idDB = JSON.parse(result);
       const basketUl = document.getElementById('panier--ul');
@@ -46,7 +46,7 @@ idsBasket.forEach(function (basketId) {
         numberInBasket.innerHTML = numberOfProducts;
   });
 });
-function newPrice(idSelect, amount){
+function newPrice(idSelect, amount) {
     const totalPrice = document.getElementById('price--total').innerHTML;
   //On change le prix en rapport de la quantité
     //On récupère le _id du produit via le id du select soit après les 7 premiers signes (select_)
@@ -63,8 +63,8 @@ function newPrice(idSelect, amount){
     document.getElementById(idPrice).innerHTML = newPrice / 100;
     //On change le prix total
     document.getElementById('price--total').innerHTML = ((totalPrixIntermediate + newPrice)/100).toFixed(2);
-};
-function deleteProduct(idProduct){
+}
+function deleteProduct(idProduct) {
   //On récupère l'id et on utilise la function dans gestionpanier.js pour supprimer l'élément
   remove(idProduct);
   //On recharge la page

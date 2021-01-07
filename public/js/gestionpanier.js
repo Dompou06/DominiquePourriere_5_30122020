@@ -1,17 +1,16 @@
-function init(){
+function init() {
         //On récupère toutes les données déjà intégrées dans le localStorage
         const basket = localStorage.getItem('basket');
-        if(basket != null){
+        if (basket != null) {
             //Si le panier n'est pas vide, on parse les values contenues dans la key basket (on transforme le JSON en objet JS)
             return JSON.parse(basket);
-        }
-        else {
+        } else {
             //Sinon, on retourne un tableau vide mais avec la création de la key basket
             return [];
         }
     }
 //Ajouter des values dans un key (basket) : localStorage.setItem('key', value);
-function add(idProduct){
+function add(idProduct) {
         //On lance la fonction init
         const basket = init();
         //Méthode pour ajouter un nouvel item à la fin du tableau de la key basket parsé
@@ -20,10 +19,10 @@ function add(idProduct){
         localStorage.setItem('basket', JSON.stringify(basket));
     }
 //On supprime un item des valeurs du tableau de la basket dans le localStorage
-function remove(idProduct){
+function remove(idProduct) {
         let basket = init();
         //On filtre tous les éléments du tableau
-        basket = basket.filter(function(product){
+        basket = basket.filter(function (product) {
             //On retourne ceux qui ne sont pas celui a supprimé (idProduct)
             return product != this;
         }, idProduct);
@@ -31,6 +30,6 @@ function remove(idProduct){
         localStorage.setItem('basket', JSON.stringify(basket));
     }
 //On supprime la clé basket et donc le tableau qui s'y relie, quand on arrive à la page commande.html
-function clear(){
+function clear() {
        localStorage.removeItem('basket');
     }
