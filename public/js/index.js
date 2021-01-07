@@ -19,13 +19,10 @@ const list = function() {
 list().then(function(products) {
     //console.log(products);
     //console.log(products.length);
-        //On renseigne le nombre d'éléments contenus dans le tableau du panier, via appel fonction init() de gestionpanier.js
-        const idsBasket = init();
-        const numberOfProducts = idsBasket.length;
-        //On indique le nombre dans le header de index.html
+        //On indique le nombre de produits dans le panier, dans le header de index.html
         const numberInBasket = document.getElementById('panier--nb');
         numberInBasket.innerHTML = numberOfProducts;
-    //On remmplit le sous-titre
+    //On remmplit le sous-titre ???
     const subtitle = document.getElementById('index--sstitre');
     subtitle.innerHTML = 'Caméras vintages'; 
     const ulList = document.getElementById('liste');
@@ -61,5 +58,5 @@ list().then(function(products) {
 }).catch(function(error) {
    //On remmplit le sous-titre si on reçoit une erreur
     const subtitle = document.getElementById('index--sstitre');
-   sstitre.innerHTML = 'Aucune caméra vintage n\'est disponibles';
+    subtitle.innerHTML = 'Aucune caméra vintage n\'est disponibles';
 });

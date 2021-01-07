@@ -4,7 +4,7 @@ let request = function(method, url, data=null, contentType=null) {
     //On crée une promise qui se résoudra plus tard (asyncrone)
     return new Promise(function(resolve, reject) {
         //On crée un objet AJAX permettant d'obtenir ou envoyer des données JSON via HTTP
-        let request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         //On écoute les changements d'état de XMLHttpRequest
         request.onreadystatechange = function() {
             //Si le dernier état du client XMLHttpRequest est l'étape 4 : (0)création puis (1)appel de open(), (2)appel de send(), (3)téléchargement via responseText, (4) Fin de l'opération 

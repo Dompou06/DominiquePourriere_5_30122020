@@ -23,13 +23,9 @@ const product = function() {
 //Si la promise et résolue, on récupère la réponse de la bd
 product().then(function(element) {
     //console.log(element);
-    //On renseigne eader de la page html avec le nombre d'éléments actuels dans le panier
-    const idsBasket = init();
-    const numberOfProducts = idsBasket.length;
-    //On indique le nombre dans le header de index.html
+    //On indique le nombre d'éléments actuels dans le panier, dans le header de index.html
     const numberInBasket = document.getElementById('panier--nb');
     numberInBasket.innerHTML = numberOfProducts;
-
     //On cible et crée les éléments html pour le remplissage des infos fournis par la bd
     const result = document.getElementById('produit');
     const article = document.createElement('article');
