@@ -46,6 +46,10 @@
 #panier--aside{padding-bottom: 1em;}
 //Page Remerciement
 #remerciements{
-    height: 68vh;
-    padding-top: 20vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    & .remerciements--text{
+        height: 40vh;
+    }
 }

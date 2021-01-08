@@ -50,8 +50,12 @@
 }
 
 #remerciements {
-  height: 68vh;
-  padding-top: 20vh;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
+#remerciements .remerciements--text {
+  height: 40vh;
 }
 
 /*# sourceMappingURL=style-m.css.map */
