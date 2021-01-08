@@ -1,29 +1,27 @@
+const subtitle = document.getElementById('index--sstitre');
 //On crée une fonction
-const list = function() {
-    return new Promise(function (resolve, reject) {
+const getCameraList = () => {
+    return new Promise((resolve, reject) => {
     //On crée une variable qui mène vers la liste des caméras   
     const urlMongo = 'http://localhost:3000/api/cameras/';
         //On envoie la promise request
-        request('GET', urlMongo).then(function (reponse) {
+        request('GET', urlMongo).then(function(reponse) {
             //S'il y a une réponse, on la récupère sous forme d'objet JS
-        const element = JSON.parse(reponse);
-        resolve(element);
-    }).catch(function(error) {
-        //Sinon, 
-        const msgError = 'Cette caméra vintage n\'est disponible';
-        reject(msgError);       
-     });
+            resolve(JSON.parse(reponse));
+        }).catch(() => {
+            //console.log('erreur ', e);
+            //Sinon, 
+            const msgError = 'Cette caméra vintage n\'est disponible';
+            reject(msgError);       
+        });
     });
 }
 //Si la promise et résolue
-list().then(function(products) {
-    //console.log(products);
-    //console.log(products.length);
+getCameraList().then(products => {
         //On indique le nombre de produits dans le panier, dans le header de index.html
         const numberInBasket = document.getElementById('panier--nb');
         numberInBasket.innerHTML = numberOfProducts;
     //On remmplit le sous-titre ???
-    const subtitle = document.getElementById('index--sstitre');
     subtitle.innerHTML = 'Caméras vintages'; 
     const ulList = document.getElementById('liste');
     //On vide le ul en page d'accueil
@@ -55,8 +53,7 @@ list().then(function(products) {
     //On écoute les événements qui ont lieu sur les li, si click, on utilise la fonction goToPageProduit
     allLi[clickLI].addEventListener('click', goToPageProduit);
     }
-}).catch(function(error) {
+}).catch(() => {
    //On remmplit le sous-titre si on reçoit une erreur
-    const subtitle = document.getElementById('index--sstitre');
     subtitle.innerHTML = 'Aucune caméra vintage n\'est disponibles';
 });

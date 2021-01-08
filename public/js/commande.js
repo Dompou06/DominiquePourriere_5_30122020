@@ -37,12 +37,12 @@ window.onload = function() {
             //Et le contenu du localstorage (value dans key basquet) sous forme de tableau
             products: init()
             }
-            const urlPostMongo = "http://localhost:3000/api/cameras/order";
+            const urlPostMongo = 'http://localhost:3000/api/cameras/order';
             //On envoie via la promise une requête POST à la BD Mongo, 
             //avec l'url indiqué dans le MVP, 
             // la constante sérialisée en JSON
             //ainsi que le type de contenu (JSON)
-            request("POST", urlPostMongo, JSON.stringify(order), 'application/json').then(function (results) {
+            request('POST', urlPostMongo, JSON.stringify(order), 'application/json').then(function (results) {
                 //On lit la réponse de BD Mongo
                 let datasPost = JSON.parse(results);
             // console.log(donneesPost.orderId);
@@ -51,7 +51,6 @@ window.onload = function() {
             }).catch(function (error) {
                 alert('La commande n\'a pu être enregistrée');
             });
-
         }
     }
 }

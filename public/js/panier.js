@@ -9,16 +9,16 @@ let total = 0;
 //Pour chaque id de produit
 idsBasket.forEach(function(basketId) {
   //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
-  const urlMongo = "http://localhost:3000/api/cameras/" + basketId;
+  const urlMongo = 'http://localhost:3000/api/cameras/' + basketId;
   //On envoie via la promise une requête GET à la BD Mongo
-  request("GET", urlMongo).then(function(result) {
+  request('GET', urlMongo).then(function(result) {
     //On transforme la chaîne reçue en objet JS
       const idDB = JSON.parse(result);
       const basketUl = document.getElementById('panier--ul');
       //On crée un li pour chaque result et on y intègre les données de la db
-      const basketUlLi = document.createElement('li');
-      basketUlLi.id = 'id_'+idDB._id;
-      basketUlLi.innerHTML = `<div class="row">
+      const basketProduct = document.createElement('li');
+      basketProduct.id = 'id_' + idDB._id;
+      basketProduct.innerHTML = `<div class="row">
       <div class="col-4">
       <img src="${idDB.imageUrl}" alt="${idDB.name}" title="${idDB.name}" />
       </div>
@@ -36,7 +36,7 @@ idsBasket.forEach(function(basketId) {
       <p>Prix : <span id="price_${idDB._id}" class="price">${idDB.price / 100}</span> €</p>
       </div>
       </div>`;
-      basketUl.appendChild(basketUlLi);
+      basketUl.appendChild(basketProduct);
       //On ajoute au total le prix de la caméra
       total += idDB.price / 100;
       document.getElementById('price--total').innerHTML = total.toFixed(2);   
