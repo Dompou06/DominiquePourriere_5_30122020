@@ -1,35 +1,33 @@
+/* eslint-disable no-undef */
 //On crée une fonction
-const product = function() {
-    return new Promise(function(resolve, reject) {   
+const product = () => {
+    return new Promise((resolve, reject) => {   
     //On récupère url
-    const query = new URLSearchParams(window.location.search);
-    //On récupère le paramètre insérer dans le paramètre get (idProduct) dans une constante
-    const idProduct = query.get('idProduct'); 
-    //On ajoute cette constante à l'url de base de données en get   
-    const urlMongo = 'http://localhost:3000/api/cameras/'+idProduct;
+        const query = new URLSearchParams(window.location.search);
+        //On récupère le paramètre insérer dans le paramètre get (idProduct) dans une constante
+        const idProduct = query.get('idProduct'); 
+        //On ajoute cette constante à l'url de base de données en get   
+        const urlMongo = 'http://localhost:3000/api/cameras/' + idProduct;
         //On envoie la promise request
-        request('GET', urlMongo).then(function(reponse) {
-        //S'il y a une réponse, on la récupère sous forme d'objet JS
-            const element = JSON.parse(reponse);
-                //On l'intègre dans le resolve de la promise
-                resolve(element);
-        }).catch(function(error) {
+        callToMongoDB('GET', urlMongo).then((reponse) => {
+            //On l'intègre dans le resolve de la promise en format JS
+            resolve(JSON.parse(reponse));
+        }).catch(() => {
             //Sinon... 
             let msgError = 'Cette caméra vintage n\'est disponible';
             reject(msgError);       
         });
     });
-}
+};
 //Si la promise et résolue, on récupère la réponse de la bd
-product().then(function(element) {
-    //console.log(element);
+product().then((element) => {
+    console.log(element);
     //On indique le nombre d'éléments actuels dans le panier, dans le header de index.html
     const numberInBasket = document.getElementById('panier--nb');
     numberInBasket.innerHTML = numberOfProducts;
     //On cible et crée les éléments html pour le remplissage des infos fournis par la bd
     const result = document.getElementById('produit');
-    const article = document.createElement('article');
-    //On met article en premier dans la section
+    const article = document.createElement('article');    //On met article en premier dans la section
     result.prepend(article);
     article.id = element._id;
     article.classList = 'col-12 col-sm-12 col-lg-8';
@@ -49,14 +47,14 @@ product().then(function(element) {
     </div></div></div></div>`;      
     article.innerHTML = articleInnerHTML;
     //On renseigne le select des lentilles  
-   const selectLens = document.getElementById('lentilles');
+    const selectLens = document.getElementById('lentilles');
     //On fait une boucle contenant les lentilles indiquées dans MongoDB pour cet caméra
-   for (let lense of element.lenses){
+    for (let lense of element.lenses) {
         const optionsOfSelectLens = document.createElement('option');
         optionsOfSelectLens.innerHTML = lense;                   
         selectLens.appendChild(optionsOfSelectLens);    
     }    
-    //On renseigne le formulaire pour le post 
+    //On renseigne le formulaire pour l'envoi vers le LocalStorag 
     const form = document.getElementById('form--prod');
     const titleForm = document.createElement('h4');
     titleForm.innerHTML = `Souhaitez-vous ajouter la caméra ${element.name} à votre panier ?`;
@@ -66,36 +64,36 @@ product().then(function(element) {
     inputForIdProduct.value = element._id;
     
     const buttonAddBasket = document.getElementById('ajoutPanier');
-        //Si le bouton est cliqué, on lance la fonction toStorage
-        buttonAddBasket.addEventListener('click', toStorage, true);
-            function toStorage() {
-                const idProduct = document.getElementById('idp').value;
-                //On vérifie que la value l'input caché n'est pas vide
-                if(idProduct !=''){
-                //S'il est rempli, on ajoute la valeur (id du produit) dans le panier
-                //via le script gestionpanier, en appelant la fonction add()
-                    add(idProduct);
-                  // On ajoute 1 au nombre de produits affichés dans le header
-                    const numberInBasket = document.getElementById('panier--nb');
-                    const numberOfProducts = idsBasket.length;
-                    const newNumberOfProducts = Number(numberOfProducts) + 1;
-                    numberInBasket.innerHTML = newNumberOfProducts;
-                    //On retourne en page d'accueil
-                    document.location.href = "../index.html";
-               } else {
-                   alert('La caméra n\'est plus disponible');
-                }          
-        }
-}).catch(function(msgError) {
-         //On prépare le remplissage des infos comme précédemment pour mettre un message d'erreur
-         const result = document.getElementById('produit');
-         const article = document.createElement('article');
-         result.prepend(article);
-         //On affiche le message d'erreur
-         article.classList = 'col-12 col-sm-12 col-lg-8';
-        const articleInnerHTML = `<div class="col-12 col-sm-12 col-lg-8 name">
+    //Si le bouton est cliqué, on lance la fonction toStorage
+    buttonAddBasket.addEventListener('click', toStorage, true);
+    function toStorage() {
+        const idProduct = document.getElementById('idp').value;
+        //On vérifie que la value l'input caché n'est pas vide
+        if (idProduct !='') {
+            //S'il est rempli, on ajoute la valeur (id du produit) dans le panier
+            //via le script gestionpanier, en appelant la fonction add()
+            add(idProduct);
+            // On ajoute 1 au nombre de produits affichés dans le header
+            const numberInBasket = document.getElementById('panier--nb');
+            const numberOfProducts = idsBasket.length;
+            numberInBasket.innerHTML = Number(numberOfProducts) + 1;
+            //On retourne en page d'accueil
+            document.location.href = '../index.html';
+        } else {
+            alert('La caméra n\'est plus disponible');
+        }          
+    }
+}).catch(() => {
+    //On affiche le message d'erreur
+    //On cible et crée les éléments html pour le remplissage des infos fournis par la bd
+    const result = document.getElementById('produit');
+    console.log(result);
+    const article = document.createElement('article');
+    result.prepend(article);
+    article.classList = 'col-12 col-sm-12 col-lg-8';
+    const articleInnerHTML = `<div class="col-12 col-sm-12 col-lg-8 name">
         <h2>Aucune caméra ne correspond à votre demande</h2></div></div>`;  
-        article.innerHTML = articleInnerHTML;  
+    article.innerHTML = articleInnerHTML;  
 });
 
 

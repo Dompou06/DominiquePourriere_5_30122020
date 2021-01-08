@@ -1,24 +1,27 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 //On récupère le tableau contenu dans LocalStorage
+// eslint-disable-next-line no-undef
 const idsBasket = init();
- //console.log(idsPanier);
+//console.log(idsPanier);
 //On initialise une variable du total général
 let total = 0;
 //Si le panier n'est pas vide
 //console.log(idsPanier.length);
 //On fait une boucle sur le tableau en localStorage
 //Pour chaque id de produit
-idsBasket.forEach(function(basketId) {
-  //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
-  const urlMongo = 'http://localhost:3000/api/cameras/' + basketId;
-  //On envoie via la promise une requête GET à la BD Mongo
-  request('GET', urlMongo).then(function(result) {
+idsBasket.forEach((basketId) => {
+    //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
+    const urlMongo = 'http://localhost:3000/api/cameras/' + basketId;
+    //On envoie via la promise une requête GET à la BD Mongo
+    callToMongoDB('GET', urlMongo).then(function(result) {
     //On transforme la chaîne reçue en objet JS
-      const idDB = JSON.parse(result);
-      const basketUl = document.getElementById('panier--ul');
-      //On crée un li pour chaque result et on y intègre les données de la db
-      const basketProduct = document.createElement('li');
-      basketProduct.id = 'id_' + idDB._id;
-      basketProduct.innerHTML = `<div class="row">
+        const idDB = JSON.parse(result);
+        const basketUl = document.getElementById('panier--ul');
+        //On crée un li pour chaque result et on y intègre les données de la db
+        const basketProduct = document.createElement('li');
+        basketProduct.id = 'id_' + idDB._id;
+        basketProduct.innerHTML = `<div class="row">
       <div class="col-4">
       <img src="${idDB.imageUrl}" alt="${idDB.name}" title="${idDB.name}" />
       </div>
@@ -36,19 +39,19 @@ idsBasket.forEach(function(basketId) {
       <p>Prix : <span id="price_${idDB._id}" class="price">${idDB.price / 100}</span> €</p>
       </div>
       </div>`;
-      basketUl.appendChild(basketProduct);
-      //On ajoute au total le prix de la caméra
-      total += idDB.price / 100;
-      document.getElementById('price--total').innerHTML = total.toFixed(2);   
+        basketUl.appendChild(basketProduct);
+        //On ajoute au total le prix de la caméra
+        total += idDB.price / 100;
+        document.getElementById('price--total').innerHTML = total.toFixed(2);   
         //On renseigne le header de panier.html du nombre d'éléments dans le panier
         const numberOfProducts = idsBasket.length;
         const numberInBasket = document.getElementById('panier--nb');
         numberInBasket.innerHTML = numberOfProducts;
-  });
+    });
 });
 function newPrice(idSelect, amount) {
     const totalPrice = document.getElementById('price--total').innerHTML;
-  //On change le prix en rapport de la quantité
+    //On change le prix en rapport de la quantité
     //On récupère le _id du produit via le id du select soit après les 7 premiers signes (select_)
     const idProduct = idSelect.slice(7);
     const idPrice = 'price_'+idProduct;
@@ -65,10 +68,10 @@ function newPrice(idSelect, amount) {
     document.getElementById('price--total').innerHTML = ((totalPrixIntermediate + newPrice)/100).toFixed(2);
 }
 function deleteProduct(idProduct) {
-  //On récupère l'id et on utilise la function dans gestionpanier.js pour supprimer l'élément
-  remove(idProduct);
-  //On recharge la page
-  document.location.reload();
+    //On récupère l'id et on utilise la function dans gestionpanier.js pour supprimer l'élément
+    remove(idProduct);
+    //On recharge la page
+    document.location.reload();
 }
 
 
