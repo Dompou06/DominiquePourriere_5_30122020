@@ -24,7 +24,8 @@ function add(idProduct) {
 function remove(idProduct) {
     let basket = init();
     //On filtre tous les éléments du tableau
-    basket = basket.filter((product) => {
+    basket = basket.filter(function (product) {
+        //On retourne ceux qui ne sont pas ce {
         //On retourne ceux qui ne sont pas celui a supprimé (idProduct)
         return product != this;
     }, idProduct);

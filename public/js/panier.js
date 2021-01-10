@@ -6,8 +6,6 @@ const idsBasket = init();
 //console.log(idsPanier);
 //On initialise une variable du total général
 let total = 0;
-//Si le panier n'est pas vide
-//console.log(idsPanier.length);
 //On fait une boucle sur le tableau en localStorage
 //Pour chaque id de produit
 idsBasket.forEach((basketId) => {
@@ -33,7 +31,7 @@ idsBasket.forEach((basketId) => {
       <option value="2">2</option>
       <option value="3">3</option>
       </select>
-      <div id="${idDB._id}" class="icon-bin cursor" onClick="deleteProduct(this.id)"></div>
+      <div id="deleteIdProduct_${idDB._id}" class="icon-bin cursor" onclick="deleteProduct(this.id)"></div>
       </div>
       <input type="hidden" id="pu_${idDB._id}" value="${idDB.price}" />
       <p>Prix : <span id="price_${idDB._id}" class="price">${idDB.price / 100}</span> €</p>
@@ -67,7 +65,8 @@ function newPrice(idSelect, amount) {
     //On change le prix total
     document.getElementById('price--total').innerHTML = ((totalPrixIntermediate + newPrice)/100).toFixed(2);
 }
-function deleteProduct(idProduct) {
+function deleteProduct(deleteIdProduct) {
+    const idProduct = deleteIdProduct.slice(16);
     //On récupère l'id et on utilise la function dans gestionpanier.js pour supprimer l'élément
     remove(idProduct);
     //On recharge la page

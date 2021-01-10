@@ -21,7 +21,6 @@ const product = () => {
 };
 //Si la promise et résolue, on récupère la réponse de la bd
 product().then((element) => {
-    console.log(element);
     //On indique le nombre d'éléments actuels dans le panier, dans le header de index.html
     const numberInBasket = document.getElementById('panier--nb');
     numberInBasket.innerHTML = numberOfProducts;
