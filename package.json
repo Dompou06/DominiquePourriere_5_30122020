@@ -1,13 +1,14 @@
 {
   "name": "orinoco-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the back end server for Project 5 of the Junior Web Developer path.",
   "main": "server.js",
   "scripts": {
     "style": "sass --watch ./sass/style.scss:./public/css/style.css",
     "desktop": "sass --watch ./sass/style-d.scss:./public/css/style-d.css",
     "mobile": "sass --watch ./sass/style-m.scss:./public/css/style-m.css",
-    "tablette": "sass --watch ./sass/style-t.scss:./public/css/style-t.css"
+    "tablette": "sass --watch ./sass/style-t.scss:./public/css/style-t.css",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +23,18 @@
     "mongoose-unique-validator": "^2.0.2",
     "popper.js": "^1.16.1",
     "uuid": "^3.4.0"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "prettier": "^2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dompou06/DominiquePourriere_5_30122020.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Dompou06/DominiquePourriere_5_30122020/issues"
+  },
+  "homepage": "https://github.com/Dompou06/DominiquePourriere_5_30122020#readme"
 }
