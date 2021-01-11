@@ -22,6 +22,7 @@ let callToMongoDB = (method, url, data=null, contentType=null) => {
         };
         //On ouvre la méthode (GET ou POST) et le paramèttre url indiqué dans then et manière asynchrone(true)
         request.open(method, url, true);
+        //console.log('Methode : ' + method + ' - URL : ' + url + ' - Data : ' + data + ' - Content-Type : ' + contentType);
         //Si lors de l'appel de la fonction request le patamètre contentType est renseigné
         if (contentType != null) {
             //On utilise la méthode setRequestHeader pour envoyer le type de contenu du corps de la requête

@@ -19,12 +19,12 @@ window.onload = () => {
         //Si aucun champ input n'est vide
         if (valid) {
             //On récupère la valeur des input
-            let mail = document.getElementById('email').value;
+            let mailValue = document.getElementById('email').value;
             let firstnameValue = document.getElementById('nom').value;
             let lastnameValue = document.getElementById('prenom').value;
             let addressValue = document.getElementById('adresse').value;
             let cityValue = document.getElementById('ville').value;
-            //On crée une constante avec les attentes attendues par controllers/camera.js
+            //On crée une constante avec l'objet' attendu par controllers/camera.js
             const order = {
             //Soit les données des inputs sous forme d'objet
                 contact:{
@@ -32,7 +32,7 @@ window.onload = () => {
                     lastName: lastnameValue,
                     address: addressValue,
                     city: cityValue,
-                    email: mail
+                    email: mailValue
                 },
                 //Et le contenu du localstorage (value dans key basquet) sous forme de tableau
                 // eslint-disable-next-line no-undef

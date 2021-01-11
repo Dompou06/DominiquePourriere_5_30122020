@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 //Au chargement de la page
-window.onload = function() {
+window.onload = () => {
     //On récupère le paramètre insérer la partie get orderId
     let params = window.location.search;
     //console.log(params);
