@@ -11,13 +11,12 @@ window.onload = () => {
     ///On indique la référence (ordrerId)
     document.getElementById('id-commande').innerHTML = id;
     //On récupère le tableau contenu dans LocalStorage
-    let idsPanier = init();
-    // console.log(idsPanier);
+    let idsCart = init();
     //On initialise une variable du total général
     let total = 0;
-    idsPanier.forEach((panierId) => {
+    idsCart.forEach(cartId => {
         //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
-        let urlMongo = 'http://localhost:3000/api/cameras/' + panierId;
+        let urlMongo = 'http://localhost:3000/api/cameras/' + cartId;
         //On envoie via la promise une requête GET à la BD Mongo
         callToMongoDB('GET', urlMongo).then(function(result) {
             //On transforme la chaîne reçue en objet JS
@@ -26,7 +25,7 @@ window.onload = () => {
             document.getElementById('montant-commande').innerHTML = total.toFixed(2);   
             //On renseigne le nombre d'élément dans le panier
             //On vide le localStorage
-            clear(idsPanier);
+            clear(idsCart);
         });   
     });
 };

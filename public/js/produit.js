@@ -68,14 +68,14 @@ product().then((element) => {
     function toStorage() {
         const idProduct = document.getElementById('idp').value;
         //On vérifie que la value l'input caché n'est pas vide
-        if (idProduct !='') {
+        if (idProduct !=='') {
             //S'il est rempli, on ajoute la valeur (id du produit) dans le panier
             //via le script gestionpanier, en appelant la fonction add()
             add(idProduct);
             // On ajoute 1 au nombre de produits affichés dans le header
-            const numberInBasket = document.getElementById('panier--nb');
-            const numberOfProducts = idsBasket.length;
-            numberInBasket.innerHTML = Number(numberOfProducts) + 1;
+            const numberInCart = document.getElementById('panier--nb');
+            const numberOfProducts = idsCart.length;
+            numberInCart.innerHTML = Number(numberOfProducts) + 1;
             //On retourne en page d'accueil
             document.location.href = '../index.html';
         } else {

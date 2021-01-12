@@ -6,9 +6,9 @@ const getCameraList = () => {
     //On crée une variable qui mène vers la liste des caméras   
         const urlMongo = 'http://localhost:3000/api/cameras/';
         //On envoie la promise request
-        callToMongoDB('GET', urlMongo).then((reponse) => {
+        callToMongoDB('GET', urlMongo).then(response => {
             //S'il y a une réponse, on la récupère sous forme d'objet JS
-            resolve(JSON.parse(reponse));
+            resolve(JSON.parse(response));
         }).catch(() => {
             //Sinon, 
             const msgError = 'Cette caméra vintage n\'est disponible';
