@@ -14,7 +14,7 @@ window.onload = () => {
     let idsCart = init();
     //On initialise une variable du total général
     let total = 0;
-    idsCart.forEach(cartId => {
+    idsCart.forEach(function (cartId) {
         //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
         let urlMongo = 'http://localhost:3000/api/cameras/' + cartId;
         //On envoie via la promise une requête GET à la BD Mongo
