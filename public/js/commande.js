@@ -34,7 +34,7 @@ window.onload = () => {
                     city: cityValue,
                     email: mailValue
                 },
-                //Et le contenu du localstorage (value dans key basquet) sous forme de tableau
+                //Et le contenu du localstorage (value dans key cart) sous forme de tableau
                 // eslint-disable-next-line no-undef
                 products: init()
             };
@@ -44,7 +44,7 @@ window.onload = () => {
             // la constante sérialisée en JSON
             //ainsi que le type de contenu (JSON)
             // eslint-disable-next-line no-undef
-            callToMongoDB('POST', urlPostMongo, JSON.stringify(order), 'application/json').then((results) => {
+            callToMongoDB('POST', urlPostMongo, JSON.stringify(order), 'application/json').then(results => {
                 //On lit la réponse de BD Mongo
                 let datasPost = JSON.parse(results);
                 // console.log(donneesPost.orderId);

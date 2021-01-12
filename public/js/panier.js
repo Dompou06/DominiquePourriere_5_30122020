@@ -7,7 +7,7 @@ const idsCart = init();
 let total = 0;
 //On fait une boucle sur le tableau en localStorage
 //Pour chaque id de produit
-idsCart.forEach((cartId) => {
+idsCart.forEach(cartId => {
     //On crée une variable contenant l'API Mongodb avec comme paramètre les éléments dans le panier 
     const urlMongo = 'http://localhost:3000/api/cameras/' + cartId;
     //On envoie via la promise une requête GET à la BD Mongo

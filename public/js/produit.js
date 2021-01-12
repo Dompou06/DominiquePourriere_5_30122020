@@ -20,7 +20,7 @@ const product = () => {
     });
 };
 //Si la promise et résolue, on récupère la réponse de la bd
-product().then((element) => {
+product().then(element => {
     //On indique le nombre d'éléments actuels dans le panier, dans le header de index.html
     const numberInBasket = document.getElementById('panier--nb');
     numberInBasket.innerHTML = numberOfProducts;
@@ -60,8 +60,7 @@ product().then((element) => {
     form.prepend(titleForm);
     //On indique le id du produit dans un input caché du formulaire
     const inputForIdProduct = document.getElementById('idp');
-    inputForIdProduct.value = element._id;
-    
+    inputForIdProduct.value = element._id;   
     const buttonAddBasket = document.getElementById('ajoutPanier');
     //Si le bouton est cliqué, on lance la fonction toStorage
     buttonAddBasket.addEventListener('click', toStorage, true);
