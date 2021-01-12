@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/* Enlever l'unité */
+/* Convertir pixel en rem */
+/* Convertir pixel en em */
+/* Convertir pixel en % */
+/* Convertir pixel en vw */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  #panier {
+    margin-left: 5em;
+  }
+  #panier img {
+    width: 3vw;
+    margin: 0.2em 0.5em 0 0.2em;
+  }
+
+  .total {
+    text-align: right;
+  }
+
+  .main--panier {
+    height: 75vh;
+    overflow-y: auto;
+    padding-bottom: 1em;
+  }
+  .main--panier ul li img {
+    width: 100%;
+  }
+
+  #panier--aside {
+    height: 75vh;
+  }
+  #panier--aside .commande {
+    padding: 0;
+  }
+  #panier--aside .commande label {
+    margin-right: 1vw;
+  }
+
+  #commander {
+    margin-top: 1em;
+  }
+
+  footer {
+    height: 15vh;
+  }
+
+  .img--produit {
+    margin-left: -0.5em;
+  }
+
+  .aside--prod {
+    text-align: center;
+  }
+
+  .main--index {
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 3em;
+  }
+  .main--index ul li {
+    text-align: center;
+  }
+  .main--index ul li .index--img {
+    width: 98%;
+  }
+
+  #remerciements {
+    padding-left: 5vw !important;
+  }
+  #remerciements .remerciements--text {
+    padding: 20vh 15vw 0 5vw !important;
+  }
+}
+
+/*# sourceMappingURL=style-t.css.map */
