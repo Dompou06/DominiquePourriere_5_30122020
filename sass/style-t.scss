@@ -28,6 +28,12 @@
 
     #panier--aside{
         height: 75vh;
+        & .commande{
+            padding: 0;
+            & label{
+                margin-right: 1vw;
+            }
+        }
     }
     #commander {margin-top: 1em;}
     footer {height: 15vh;}
@@ -50,6 +56,12 @@
        } 
     }
 }
-
+//Page Remerciement
+#remerciements{
+    padding-left: 5vw !important;    
+    & .remerciements--text{
+        padding: 20vh 15vw 0 5vw !important;
+    }
+}
 
 }
