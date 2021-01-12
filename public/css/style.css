@@ -1,1 +1,114 @@
-html,body{margin:0 !important;padding:0 !important;width:100vw !important}a:hover{text-decoration:none !important;color:inherit !important}header{background:-webkit-linear-gradient(0.1turn, #e78b06 5%, #8f5bfe);height:10vh}header nav{color:#fff}header nav a{color:#fff}aside{background-color:#f7f3ff}button{background:#8f5bfe !important;border-color:#6c28fe;border-radius:2em !important;height:3em;font-weight:600;color:#fff}footer{background:#e78b06}footer .copyright{font-size:.75em;font-weight:700}.cursor{cursor:pointer}.total{color:#8f5bfe}ul{padding:0 !important;list-style:none}ul li{padding-bottom:1em}ul li h4{margin:-0.2em 0 0 0 !important}ul li p{margin:0 !important}ul li select{height:1.5em !important;padding:0 !important}ul li select option{padding:0 !important;margin:0 !important}ul li .icon-bin{font-size:1.5em;line-height:1em;margin-left:.5em;color:#acaaa3}.display-n{display:none}.img--produit{width:100%}#partie--description{margin-top:1em}#description{text-align:justify}#remerciements{text-align:center}.red{background:red}.green{background:green}
+@charset "UTF-8";
+/* Enlever l'unité */
+/* Convertir pixel en rem */
+/* Convertir pixel en em */
+/* Convertir pixel en % */
+/* Convertir pixel en vw */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+header {
+  background: -webkit-linear-gradient(0.1turn, #e78b06 5%, #8f5bfe);
+  height: 10vh;
+}
+header nav {
+  color: #fff;
+}
+header nav a {
+  color: #fff;
+}
+
+aside {
+  background-color: #f7f3ff;
+}
+
+button {
+  background: #8f5bfe !important;
+  border-color: #6c28fe;
+  border-radius: 2em !important;
+  height: 3em;
+  font-weight: 600;
+  color: #fff;
+}
+
+footer {
+  background: #e78b06;
+}
+footer .copyright {
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.total {
+  color: #8f5bfe;
+}
+
+ul {
+  padding: 0 !important;
+  list-style: none;
+}
+ul li {
+  padding-bottom: 1em;
+}
+ul li h4 {
+  margin: -0.2em 0 0 0 !important;
+}
+ul li p {
+  margin: 0 !important;
+}
+ul li select {
+  height: 1.5em !important;
+  padding: 0 !important;
+}
+ul li select option {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+ul li .icon-bin {
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-left: 0.5em;
+  color: #acaaa3;
+}
+
+.display-n {
+  display: none;
+}
+
+.img--produit {
+  width: 100%;
+}
+
+#partie--description {
+  margin-top: 1em;
+}
+
+#description {
+  text-align: justify;
+}
+
+#remerciements {
+  text-align: center;
+}
+
+.red {
+  background: red;
+}
+
+.green {
+  background: green;
+}
+
+/*# sourceMappingURL=style.css.map */
