@@ -24,7 +24,7 @@ let callToMongoDB = (method, url, data=null, contentType=null) => {
         request.open(method, url, true);
         //console.log('Methode : ' + method + ' - URL : ' + url + ' - Data : ' + data + ' - Content-Type : ' + contentType);
         //Si lors de l'appel de la fonction request le patamètre contentType est renseigné
-        if (contentType != null) {
+        if (contentType !== null) {
             //On utilise la méthode setRequestHeader pour envoyer le type de contenu du corps de la requête
             request.setRequestHeader('Content-Type', contentType);
         }

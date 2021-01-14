@@ -22,8 +22,8 @@ const product = () => {
 //Si la promise et résolue, on récupère la réponse de la bd
 product().then(element => {
     //On indique le nombre d'éléments actuels dans le panier, dans le header de index.html
-    const numberInBasket = document.getElementById('panier--nb');
-    numberInBasket.innerHTML = numberOfProducts;
+    const numberInCart = document.getElementById('panier--nb');
+    numberInCart.innerHTML = numberOfProducts;
     //On cible et crée les éléments html pour le remplissage des infos fournis par la bd
     const result = document.getElementById('produit');
     const article = document.createElement('article');    //On met article en premier dans la section
@@ -61,9 +61,9 @@ product().then(element => {
     //On indique le id du produit dans un input caché du formulaire
     const inputForIdProduct = document.getElementById('idp');
     inputForIdProduct.value = element._id;   
-    const buttonAddBasket = document.getElementById('ajoutPanier');
+    const buttonAddCart = document.getElementById('ajoutPanier');
     //Si le bouton est cliqué, on lance la fonction toStorage
-    buttonAddBasket.addEventListener('click', toStorage, true);
+    buttonAddCart.addEventListener('click', toStorage, true);
     function toStorage() {
         const idProduct = document.getElementById('idp').value;
         //On vérifie que la value l'input caché n'est pas vide
