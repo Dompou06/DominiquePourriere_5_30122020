@@ -110,7 +110,7 @@ window.onload = () => {
                         let idReference = JSON.parse(reponse);
                         //console.log(donneesPost.orderId);
                         //On charge la page commande.html en lui mettant en paramètre la reponse de l'order_id de MongoDB
-                        window.location.assign(`/public/pages/commande.html?orderId=${idReference.orderId}`);
+                        window.location.assign(`/commande.html?orderId=${idReference.orderId}`);
                     });                     
                     })
                    .catch(reject => {
